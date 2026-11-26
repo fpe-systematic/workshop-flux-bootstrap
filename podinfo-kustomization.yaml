@@ -12,3 +12,12 @@ spec:
   sourceRef:
     kind: GitRepository
     name: podinfo
+  # The workshop node is nearly full on CPU; shrink podinfo's request so it fits.
+  patches:
+    - target:
+        kind: Deployment
+        name: podinfo
+      patch: |
+        - op: replace
+          path: /spec/template/spec/containers/0/resources/requests/cpu
+          value: 10m
