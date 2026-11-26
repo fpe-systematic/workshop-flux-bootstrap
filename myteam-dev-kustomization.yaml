@@ -6,8 +6,9 @@ metadata:
   namespace: default
 spec:
   interval: 1m0s
-  path: ./overlays/dev
+  path: ./myteam/dev
   prune: true
+  targetNamespace: dev
   sourceRef:
     kind: GitRepository
     name: myteam
